@@ -1,8 +1,7 @@
 {
-  "providers": [
-   "Yusidabcs\Disabler\DisablerServiceProvider"
-  ],
-  "aliases": [
-   
-  ]
+	"providers": [
+		"Yusidabcs\Disabler\DisablerServiceProvider"
+	],
+	"aliases": [
+	]
 }
