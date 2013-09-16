@@ -37,8 +37,8 @@ class DisablerHomeController  extends \Illuminate\Routing\Controllers\Controller
 		 if (!Sentry::check())
             {
                 // User is not logged in, or is not activated
-                $msg = 'You have been logout automaticaly.';
-                return $msg;
+                $msg = 'You have not access for this page.';
+                return Redirect::to('admin/login')->with('error',$msg);
             }
         if(Input::get('status')!='' && Input::get('kategori')==''){
         	$produk = Produk::where('visibility','=',Input::get('status'))->paginate(15);
@@ -58,8 +58,8 @@ class DisablerHomeController  extends \Illuminate\Routing\Controllers\Controller
 		if (!Sentry::check())
         {
             // User is not logged in, or is not activated
-            $msg = 'You have been logout automaticaly.';
-            return $msg;
+            $msg = 'You have been logout automaticaly.';            
+            return Redirect::to('admin/login')->with('error',$msg);
         }
         $hapus =  Input::get('hapus');
         $hapus= explode(';', $hapus);
@@ -93,7 +93,7 @@ class DisablerHomeController  extends \Illuminate\Routing\Controllers\Controller
         {
             // User is not logged in, or is not activated
             $msg = 'You have been logout automaticaly.';
-            return $msg;
+            return Redirect::to('admin/login')->with('error',$msg);
         }
         if(Input::get('status')=='disable'){
        		if(Input::get('tipe')=='1'){
